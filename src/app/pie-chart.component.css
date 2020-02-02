@@ -1,0 +1,32 @@
+.pieChartWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.pieChart {
+  flex: 1 1 auto;
+  margin: 10px;
+}
+
+.pieChartLegend {
+  flex: 1 1;
+  margin: 10px
+}
+
+.pieChartLegend__legendElement {
+  display: flex;
+  margin: 5px;
+  align-items: center;
+}
+
+.legendElement__sign {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 5px;
+}
+
+.legendElement__text {
+  flex: 1 1;
+  display: block;
+}

@@ -1,0 +1,47 @@
+<div class="pieChartWrapper">
+  <svg class="pieChart" attr.viewBox="{{ viewBoxAttributes }}" style="transform: rotate(-90deg)">
+    
+    <ng-container *ngIf="!options.isDoughnutChart">
+      <ng-container *ngFor="let slice of processedData" >
+        <path class="pieChartSlice"
+          attr.d="{{ slice.pathData }}"
+          attr.fill="{{ slice.color }}">
+        </path>
+        <text *ngIf="options.displayValuesOnChart" 
+          attr.fill="{{ options.valuesFontColor }}"
+          attr.font-size="{{ options.valuesFontSize }}"
+          attr.transform="rotate(90, {{slice.textCoord.x}}, {{ slice.textCoord.y }})"
+          attr.x="{{ slice.textCoord.x }}"
+          attr.y="{{ slice.textCoord.y }}">
+          {{ slice.value }}
+        </text>
+      </ng-container>
+    </ng-container>
+   
+    <ng-container *ngIf="options.isDoughnutChart">
+      <path class="pieChartSlice" *ngFor="let slice of processedData" 
+        attr.d="{{ slice.pathData }}"
+        fill="none"
+        attr.stroke-width="{{ options.arcWidth }}"
+        attr.stroke="{{ slice.color }}">
+      </path>
+    </ng-container>
+
+    <text *ngIf="options.displayTotalOnChart" 
+      dominant-baseline="middle" text-anchor="middle"
+      attr.fill="{{ options.totalFontColor }}"
+      attr.font-size="{{ options.totalFontSize }}"
+      transform="rotate(90)">
+      {{ sum }}
+    </text>
+  
+  </svg>
+  <div class="pieChartLegend">
+    <div class="pieChartLegend__legendElement" *ngFor="let slice of processedData">
+      <span [ngStyle]="{'background-color': slice.color}" class="legendElement__sign"></span>
+      <span class="legendElement__text">
+        {{ slice.label }} ({{ slice.value }})
+      </span>
+    </div>
+  </div>
+</div>
