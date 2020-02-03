@@ -7,15 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   data = [{
-    label: 'cica asdjhfgsdhjkvf dsf sdfasdf sd',
+    label: 'Megfelelet státuszban',
     value: 12,
     color: '#7ed321'
   }, {
-    label: 'kutya',
+    label: 'Folyamatban státuszban',
     value: 25,
     color: '#0497bb'
   }, {
-    label: 'szar',
+    label: 'Nem indított státuszban',
     value: 50,
     color: '#7a7a7a'
   }]
