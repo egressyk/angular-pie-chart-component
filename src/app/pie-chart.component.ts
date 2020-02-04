@@ -65,7 +65,7 @@ export class PieChartComponent implements OnInit {
 
   private calculateFontSize(text: any){
     const length = text.toString().length;
-    return Math.min(2.6/length, 1);
+    return Math.min((3.1 - this.options.arcWidth) /length, 1);
   }
 
   private getPercent(value): number {
