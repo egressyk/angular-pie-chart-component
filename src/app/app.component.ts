@@ -8,15 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   data = [{
     label: 'Megfelelet státuszban',
-    value: 12,
+    value: 1000000000000,
     color: '#7ed321'
   }, {
     label: 'Folyamatban státuszban',
-    value: 25,
+    value: 2,
     color: '#0497bb'
   }, {
     label: 'Nem indított státuszban',
-    value: 50,
+    value: 5,
     color: '#7a7a7a'
   }]
 }

@@ -14,11 +14,11 @@ export interface PieChartData {
 export class PieChartComponent implements OnInit {
   @Input() data: PieChartData[];
   @Input() options: any = {
-    isDoughnutChart: false,
+    isDoughnutChart: true,
     // ArcWidth is only applicable to doughnut chart, shound be between 0 and 2 (exclusive)
     arcWidth: 0.5,
     displayValuesOnChart: true,
-    displayTotalOnChart: false,
+    displayTotalOnChart: true,
     valuesFontColor: 'white',
     valuesFontSize: 0.2,
     totalFontColor: 'black',
@@ -32,6 +32,7 @@ export class PieChartComponent implements OnInit {
   ngOnInit() {
     this.viewBoxAttributes = this.getViewBoxAttributes(this.options);
     this.processedData = this.getProcessedData(this.data);
+    this.options.totalFontSize = this.calculateFontSize(this.sum);
   }
 
   private getProcessedData(data: any[]): any[] {
@@ -60,6 +61,11 @@ export class PieChartComponent implements OnInit {
     });
 
     return processedData;
+  }
+
+  private calculateFontSize(text: any){
+    const length = text.toString().length;
+    return Math.min(2.6/length, 1);
   }
 
   private getPercent(value): number {
