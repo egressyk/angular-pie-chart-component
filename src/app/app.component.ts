@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   data = [{
     label: 'Megfelelet státuszban',
-    value: 10000000000,
+    value: 10,
     color: '#7ed321'
   }, {
     label: 'Folyamatban státuszban',
